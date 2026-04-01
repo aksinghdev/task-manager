@@ -20,7 +20,12 @@ const taskSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: ["Family", "Personal", "Study"],
-    }
+    },
+    createdAt : {
+        type : Date,
+        default: Date.now(),
+        required : true,
+    },
 });
 
 const Task = mongoose.model("Task",taskSchema);

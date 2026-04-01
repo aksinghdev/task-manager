@@ -5,6 +5,7 @@ const app = express()
 const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
+const taskRautes = require('./routes/Taskroute')
 
 const database = require("./config/database")
 dotenv.config();
@@ -36,6 +37,9 @@ app.use(
     credentials: true,
     })
 );
+
+// rautes
+app.use("/api/v1/task",taskRautes);
 
 // default raute
 app.get("/",(req, res) => {

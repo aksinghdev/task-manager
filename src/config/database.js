@@ -6,7 +6,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 
 const database = () => {
-    console.log("db url",process.env.DB_URL);
+    // console.log("db url",process.env.DB_URL);
 
     mongoose.connect(process.env.DB_URL,{
         family: 4
