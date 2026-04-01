@@ -70,9 +70,9 @@ exports.getAllTasks = async(req, res) =>{
 
 // Edit task
 exports.editTask = async(req, res) => {
-    console.log("req.body => ",req.body);
+    // console.log("req.body => ",req.body);
     const {newTitle, newDescription, newCategory, NewDueDate, taskId} = req.body
-    console.log("fetched data : ",newTitle, newDescription, NewDueDate, newCategory, taskId);
+    // console.log("fetched data : ",newTitle, newDescription, NewDueDate, newCategory, taskId);
     try{
         // task id validation
         if(!taskId){
@@ -117,7 +117,7 @@ exports.editTask = async(req, res) => {
 
 // Complete task
 exports.completeTask = async (req, res) =>{
-    const taskId = req.body;
+    const {taskId} = req.body;
     try{
         // check exist task 
         const existTask = await Task.findById(taskId);
@@ -155,7 +155,7 @@ exports.completeTask = async (req, res) =>{
 
 // delete task
 exports.deleteTask = async (req, res) =>{
-    const taskId = req.body;
+    const {taskId} = req.body;
     try{
         // check task existance if exist then delete
         const task = await Task.findByIdAndDelete(taskId);
