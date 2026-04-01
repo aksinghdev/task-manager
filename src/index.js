@@ -6,7 +6,10 @@ const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
 
+const database = require("./config/database")
 dotenv.config();
+
+database();
 
 const PORT = process.env.PORT || 3400
 
